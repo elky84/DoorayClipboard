@@ -232,7 +232,7 @@ function initButton(id, buttonTitle, copyText) {
   let button = document.createElement('button')
   button.id = id
   button.textContent = buttonTitle
-  button.className = 'css-gqoeqv'
+  button.className = 'css-d7aocq'
   button.addEventListener(
     'click',
     function() {
@@ -249,7 +249,7 @@ function initPullMsgButton(id, buttonTitle, copyText, saveObj) {
   let button = document.createElement('button')
   button.id = id
   button.textContent = buttonTitle
-  button.className = 'css-gqoeqv'
+  button.className = 'css-d7aocq'
   button.addEventListener(
     'click',
     function() {
@@ -297,7 +297,7 @@ function createButtonStorageDelete(id, buttonTitle, saveId, saveText, buttonBar,
 	let button = document.createElement('button')
     button.id = id
     button.textContent = buttonTitle
-    button.className = 'css-gqoeqv'
+    button.className = 'css-d7aocq'
     button.addEventListener(
       'click',
       function() {
@@ -332,23 +332,26 @@ function createButtonStorageDelete(id, buttonTitle, saveId, saveText, buttonBar,
 function appendButton(target) {
   const buttonIds = ['QFD1boxRNX0', 'QFD1boxRNX1', 'QFD1boxRNX2', 'QFD1boxRNX3']
 
-  const titleElement = target.querySelector('div.css-1iyoj2o > div.css-1z0phxv > div.css-1e8smdm > div > span.css-dy7vad')
+  const titleElement = target.querySelector('div.css-1n3ltfg > div > div > div > div > div.css-1iyoj2o > div.css-1s331hr > div.css-1g34g6m > div > span > span > span.css-1yvapiu')
   if(titleElement === null) {
+    console.log('no titleElement')
 	  return
   }
 
   const title = titleElement.textContent
-  const info = target.querySelector('div:nth-child(1)')
+
+  const info = target.querySelector('div.css-1n3ltfg > div > div > div > div > div:nth-child(1)')
   const projectName = info.getAttribute('data-project-code')
   const postNumber = info.getAttribute('data-task-number')
   const projectId = info.getAttribute('data-project-id')
 
   const previousNumberButton = target.querySelector('button[id=' + buttonIds[0] + ']')
   if (previousNumberButton && previousNumberButton.textContent === postNumber) {
+    console.log('no postNumber')
     return
   }
 
-  const buttonBar = target.querySelector('div.css-1iyoj2o > div.css-1z0phxv > div.css-13cn242 > div.css-ymnkqa > div')
+  const buttonBar = target.querySelector('div.css-1n3ltfg > div > div > div > div > div.css-1iyoj2o > div.css-1s331hr > div.css-suq793 > div.css-ymnkqa > div')
   if (previousNumberButton) {
     for (let i = 0; i < buttonIds.length; i++) {
       let button = target.querySelector('button[id=' + buttonIds[i] + ']')
@@ -369,6 +372,7 @@ function appendButton(target) {
 
   createButtonStorageDelete(buttonIds[3], 'DP', projectId, projectName, buttonBar, firstButton)
 }
+
 
 function checkAndAppendButton() {
   const selectors = ['#task-detail-default',
